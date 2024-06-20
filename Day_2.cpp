@@ -84,3 +84,68 @@ int second_largest(int arr[] , int n) {
     return sec_larg;
 }
 
+//TO CHECK IF ARRAY IS SORTED OR NOT ?
+#include <iostream>
+#include <algorithm> 
+using namespace std;
+
+int check_sort(int arr[] , int n){
+    for(int i = 0; i < n; i++){
+        if(arr[i] > arr[i-1]){
+
+        }
+        else {
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+    int arr[] = {1 ,2 ,3 ,4 , 6 };
+    int n = sizeof(arr) / sizeof(arr[0]) ;
+    
+   int check = check_sort(arr,n);
+   
+   if(check == true ){
+       cout << "ARRAY IS SORTED ";
+       
+   }
+   else 
+    cout << "Array is not sorted";
+   
+}
+
+
+/* 
+remove  duplicate in an array
+Brute force AS SET DOESNT CONTAIN DUPLICATAE VALUE 
+ */
+
+//Optimal CODE
+#include <iostream>
+#include <algorithm> 
+using namespace std;
+
+int rem_dup(int arr[] , int n){
+    int i  = 0;
+    for(int j = 1; j < n; j++){
+        if(arr[i] != arr[j]){
+            arr[i + 1] = arr[j];
+            i++;
+        }
+        
+    }
+    return i + 1;
+        
+}
+int main() {
+    int arr[] = {1 ,2 ,2 , 2 , 6 };
+    int n = sizeof(arr) / sizeof(arr[0]) ;
+    
+   int check = rem_dup(arr,n);
+   
+   cout << check;
+   
+   
+}
