@@ -1,24 +1,23 @@
 //Day 2 of learning Arrrays
 //Largest element in array  brute force  approach
 
-#include <iostream>
-#include <algorithm> 
-using namespace std;
+int getMaxElement(int arr[], int n) {
+    sort(arr, arr + n);
+    return arr[n - 1];
+}
 
 int main() {
     int arr[] = {3, 1, 4, 1, 5, 9, 2, 6, 5};
     int n = sizeof(arr) / sizeof(arr[0]);
 
-    // Sort the array
-    sort(arr, arr + n);
-
-    // The maximum element is now the last element in the sorted array
-    int maxElement = arr[n - 1];
+    // Get the maximum element
+    int maxElement = getMaxElement(arr, n);
 
     cout << "Maximum element in the array is: " << maxElement << endl;
 
     return 0;
 }
+
 
 /* 
 quicksort, mergesort, or heapsort typically has a time complexity of 0(nlogn)
@@ -182,6 +181,86 @@ int main() {
     
 }
 
+/* 
+left Rotate Array by d places 
+ */
+#include <iostream>
+using namespace std;
+
+void leftrotate(int arr[], int n , int d ){
+        if (n == 0) return;
+    d = d % n;
+    if (d == 0) return;
+    int temp[d]; 
+    for (int i = 0; i < d; i++) {
+        temp[i] = arr[i];
+    }
+
+    // step 2: Shift last (n-d) elements
+    // to the left by d places in the given array:
+    for (int i = d; i < n; i++) {
+        arr[i - d] = arr[i];
+    }
+
+    //step 3: Place the elements of the temporary
+    // array in the last d places of the given array:
+    for (int i = n - d; i < n; i++) {
+        arr[i] = temp[i - (n - d)];
+    }
+}
+int main()
+{
+    int n = 7;
+    int arr[] = {1, 2, 3, 4, 5, 6, 7};
+    int d;
+    cin >> d;
+
+    cout << "Before rotation:" << endl;
+    for (int i = 0; i < n; i++)
+        cout << arr[i] << " ";
+    cout << endl;
+
+    leftrotate(arr, n, d);
+    cout << "After rotation:" << endl;
+    for (int i = 0; i < n; i++)
+        cout << arr[i] << " ";
+    cout << endl;
+    return 0;
+}
+
+
+
+
+/* 
+left Rotate Array by d places 
+Reverse the first  d elements: Reverse the subarray from index 0 to d−1
+Reverse the remaining  n−d elements : Reverse the subarray from index  d to n−1.
+Reverse the entire array:Reverse the subarray from index 0 to  n−1.
+efficient
+*/
+
+void leftrotatebydplaces(int arr[] , int n , int d){
+    reverse(arr , arr+d);
+    reverse(arr+d , arr+n);
+    reverse(arr , arr+n);
+}
+
+void  rightrotate(int arr[] , int n , int d){
+     reverse(arr , arr+n);
+    reverse(arr , arr+d);
+    reverse(arr+d , arr+n);
+   
+}
+
+
+
+
+
+
+
+
+
+
 
 /* 
 Move all the  zeroes at the end
@@ -287,3 +366,6 @@ int main() {
 
     return 0;
 }
+
+
+//
