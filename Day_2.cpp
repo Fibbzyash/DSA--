@@ -245,22 +245,21 @@ void leftrotatebydplaces(int arr[] , int n , int d){
     reverse(arr , arr+n);
 }
 
-void  rightrotate(int arr[] , int n , int d){
-     reverse(arr , arr+n);
-    reverse(arr , arr+d);
-    reverse(arr+d , arr+n);
-   
-}
 
+class Solution {
+public:
+    void  rotate(vector<int>& nums, int k) {
+        int n = nums.size();
+        k = k % n; 
 
+        if (n == 0 || k == 0) return;
 
-
-
-
-
-
-
-
+        reverse(nums.begin() , nums.end() );
+        reverse(nums.begin(), nums.begin() + k);
+        reverse(nums.begin() + k,  nums.end() );
+        
+    }
+};
 
 /* 
 Move all the  zeroes at the end
