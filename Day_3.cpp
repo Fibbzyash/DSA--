@@ -1,7 +1,7 @@
 //Day 3 of learning Arrrays
 
 //Missing number
-
+//TS - O(N^2)
 #include <iostream>
 using namespace std;
 
@@ -106,3 +106,4 @@ int main() {
 }
 
 
+//Maximum consecutive ones
