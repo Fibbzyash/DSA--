@@ -40,7 +40,7 @@ using namespace std;
 
 
 int Missing(vector<int>&arr , int n){
-    int hash[n + 1] = {0} ;
+    int hash [n + 1] = {0} ;
     
     
     for( int i = 0 ; i< n ; i++){       //TS - O(N)
@@ -70,3 +70,39 @@ int main() {
    
    
 }
+
+
+
+//optiomal approach SUMMATION
+
+#include <bits/stdc++.h>
+using namespace std;
+
+
+int Missing(vector<int>&arr , int n){
+     int sum = (n * (n + 1))/2;
+        int s = 0;
+     for( int i = 0; i < n; i++){
+         s += arr[i];
+     }
+     
+     int missingnumber = sum - s;
+     
+     
+    return missingnumber;    
+}
+
+int main() {
+    
+   vector<int> arr = { 1 ,3 ,4 ,5};
+   int n = 5;
+   
+   int print = Missing(arr , n);
+   
+  
+  cout << print << " ";
+   
+   
+}
+
+
