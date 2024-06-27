@@ -48,3 +48,36 @@ pair<int, int> twosum(vector<int>& arr, int target) {
     }
     return {-1, -1}; 
 }
+
+
+
+pair<int, int> twosum(vector<int>& arr, int target) {
+    int left = 0;
+    int right = arr.size() - 1;
+    sort(arr.begin(), arr.end());
+    
+    while (left < right) {
+        int sum = arr[left] + arr[right];
+        if (sum == target) {
+            return {left, right};
+        } else if (sum < target) {
+            left++;
+        } else {
+            right--;
+        }
+    }
+    
+    return {-1, -1};
+}
+
+pair<int, int> twosum(vector<int>& arr, int target) {
+    unordered_map<int, int> num_map; 
+    for (int i = 0; i < arr.size(); i++) {
+        int complement = target - arr[i];
+        if (num_map.find(complement) != num_map.end()) {
+            return {num_map[complement], i};
+        }
+        num_map[arr[i]] = i;
+    }
+    return {-1, -1};
+}
