@@ -35,3 +35,16 @@ int optimal(int arr[] , int n){
     } 
 }
 
+
+//two sum 0(N^2)
+pair<int, int> twosum(vector<int>& arr, int target) {
+    int n = arr.size();
+    for (int i = 0; i < n; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (arr[i] + arr[j] == target) {
+                return {i, j};
+            }
+        }
+    }
+    return {-1, -1}; 
+}
