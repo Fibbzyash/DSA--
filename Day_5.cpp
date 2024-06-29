@@ -122,4 +122,25 @@ int majorityElement(vector<int>& nums) {
         return element;
     }
 
-//Kadane's Algo
+/*
+Subarray : a contigious portion of array & maintain original order.
+*/
+
+//Max Subarray Sum Kadane's Algo
+
+int maxSubArraySum(int arr[], int n) {
+    int sum = 0;
+    int maxi = INT_MIN;
+
+    for(int i = 0; i < n; i++) {
+        sum += arr[i];
+        if(sum > maxi) {
+            maxi = sum;
+        }
+        if(sum < 0) {
+            sum = 0;
+        }
+    }
+    return maxi;  // Return the maximum subarray sum
+}
+
