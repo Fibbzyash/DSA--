@@ -65,3 +65,73 @@ void sortnums(vector<int>& nums) {
 
         }
 }
+//Majority brute force`
+
+int  majority(vector<int>& arr , int n) {
+       for(int i = 0; i< n ; i++){
+            int cnt = 0;
+            for(int j = 0; j< n; j++){
+                if(arr[i] == arr[j]){
+                    cnt++;
+                }
+            }
+                if(cnt > n / 2) {
+                    return arr[i] ;
+                }
+            }
+            return -1;
+     
+}
+
+//map
+int  majority(vector<int>& arr , int n) {
+       map<int , int> mp;
+       //storing the element with its occurence
+       for(int i = 0;  i< n ; i++){
+           mp[arr[i]]++;
+       }
+       
+       for (auto it : mp) {
+        if (it.second > (n / 2)) {
+            return it.first;
+        }
+    }
+       
+       
+        return -1;
+}
+
+//optimal approach
+int majorityElement(vector<int>& nums) {
+    int n = nums.size();
+    int count = 0; // Counter for majority candidate
+    int element = -1; 
+
+   
+    for(int i= 0; i< n; i++){
+        if(count == 0){
+            element = arr[i];
+            count = 1;
+        }
+        else if(element = arr[i]){
+            count ++;
+        } else {
+            count --;
+    }
+}
+
+    // Verifying if element is the majority element
+    int actual_count = 0;
+    for (int i = 0; i < n; i++) {
+        if (nums[i] == element) {
+            actual_count++;
+        }
+    }
+
+    // Checking if element appears more than n/2 times
+    if (actual_count > (n / 2)) {
+        return element;
+    } else {
+        return -1; // No majority element found
+    }
+}
