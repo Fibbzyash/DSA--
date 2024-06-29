@@ -46,7 +46,7 @@ int main() {
     
     return 0;
 }
-//Dutch National flag algo
+//Dutch National flag algo O(n) ,  O(1)
 
 void sortnums(vector<int>& nums) {
         int low = 0 ,  mid = 0  , high = nums.size() - 1;
