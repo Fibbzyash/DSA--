@@ -50,7 +50,7 @@ pair<int, int> twosum(vector<int>& arr, int target) {
 }
 
 
-
+//two pointer
 pair<int, int> twosum(vector<int>& arr, int target) {
     int left = 0;
     int right = arr.size() - 1;
@@ -69,7 +69,7 @@ pair<int, int> twosum(vector<int>& arr, int target) {
     
     return {-1, -1};
 }
-
+//map
 pair<int, int> twosum(vector<int>& arr, int target) {
     unordered_map<int, int> num_map; 
     for (int i = 0; i < arr.size(); i++) {
