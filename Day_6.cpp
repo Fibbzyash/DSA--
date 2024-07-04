@@ -24,4 +24,4 @@ void rearrange(int arr[], int n) {
         arr[index++] = neg[negIndex++];
     }
 }
-//selected s
+//selected sE
