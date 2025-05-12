@@ -1,0 +1,77 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+void sumArray(int arr1[] , int n , int arr2[]  , int m){
+    int i = n - 1;
+    int j = m - 1;
+    
+    vector<int> ans;
+    int carry = 0;
+    int sum = 0;
+    while(i>= 0  && j>= 0){
+        int val1 = arr1[i];
+        int val2 = arr2[j];
+        
+        sum = val1 + val2 + carry;
+        
+        carry = sum/10;
+        sum = sum % 10 ;
+        
+        ans.push_back(sum);
+        i--;
+        j--;
+    }
+    
+    while(i>=0){
+        sum = arr1[i] + carry;
+        carry = sum/10;
+        sum = sum % 10 ;
+        
+        ans.push_back(sum);
+        i--;
+        
+        
+    }
+    
+    while(j>=0){
+        sum = arr2[j] + carry;
+        carry = sum/10;
+        sum = sum % 10 ;
+        
+        ans.push_back(sum);
+        j--;
+        
+    }
+    
+    while(carry != 0){
+        sum = carry;
+        carry = sum/10;
+        sum = sum % 10 ;
+        
+        ans.push_back(sum);
+    }
+
+    for (int k = ans.size() - 1 ; k >= 0; k--) {
+        cout << ans[k];
+    }
+    cout << endl;
+    
+    
+}
+
+
+
+int main() {
+    int arr1[] = {1 ,1 ,1 };
+    int arr2[] = {   9 ,9};
+    int n = sizeof(arr1) / sizeof(arr1[0]);
+    int m = sizeof(arr2) / sizeof(arr2[0]);
+
+    sumArray(arr1, n, arr2, m); // Output: 1642
+
+    return 0;
+}
+
+
+
